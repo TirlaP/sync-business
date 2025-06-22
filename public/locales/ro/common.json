@@ -1,0 +1,262 @@
+{
+  "company": {
+    "name": "AquaPro Master Instalații",
+    "tagline": "Soluții profesionale de instalații sanitare pentru casa ta",
+    "phone": "0722 123 456",
+    "email": "contact@aquapromaster.ro",
+    "address": "Strada Mihai Eminescu 15, București, România",
+    "hours": {
+      "weekdays": "Luni - Vineri: 8:00 - 18:00",
+      "saturday": "Sâmbătă: 9:00 - 14:00",
+      "sunday": "Duminică: Închis"
+    }
+  },
+  "nav": {
+    "home": "Acasă",
+    "services": "Servicii",
+    "projects": "Proiecte",
+    "about": "Despre Noi",
+    "contact": "Contact",
+    "getQuote": "Solicită Ofertă"
+  },
+  "home": {
+    "hero": {
+      "title": "Instalații Sanitare Profesionale în București",
+      "subtitle": "Servicii complete de instalații, reparații și întreținere. Disponibili 24/7 pentru urgențe.",
+      "cta": {
+        "primary": "Solicită Ofertă Gratuită",
+        "secondary": "Vezi Serviciile Noastre"
+      }
+    },
+    "emergency": {
+      "title": "Urgențe Non-Stop",
+      "available": "Disponibili 24/7"
+    },
+    "features": {
+      "title": "De Ce Să Ne Alegi",
+      "subtitle": "Experiență de peste 15 ani în domeniul instalațiilor sanitare",
+      "list": [
+        {
+          "title": "Servicii de Urgență 24/7",
+          "description": "Intervenim rapid în caz de urgențe, oricând ai nevoie"
+        },
+        {
+          "title": "Echipă Certificată",
+          "description": "Instalatori autorizați ANRE cu experiență vastă"
+        },
+        {
+          "title": "Garanție Extinsă",
+          "description": "Oferim garanție 2 ani pentru toate lucrările efectuate"
+        },
+        {
+          "title": "Prețuri Transparente",
+          "description": "Estimări gratuite și prețuri corecte, fără costuri ascunse"
+        }
+      ]
+    },
+    "services": {
+      "title": "Serviciile Noastre",
+      "subtitle": "Soluții complete pentru toate nevoile tale de instalații",
+      "viewAll": "Vezi Toate Serviciile"
+    },
+    "testimonials": {
+      "title": "Ce Spun Clienții Noștri",
+      "subtitle": "Peste 500 de clienți mulțumiți în București și Ilfov",
+      "list": [
+        {
+          "name": "Maria Popescu",
+          "role": "Proprietar Apartament",
+          "content": "Serviciu excelent! Au reparat rapid avaria și prețul a fost foarte corect. Recomand cu încredere!"
+        },
+        {
+          "name": "Ion Georgescu",
+          "role": "Administrator Bloc",
+          "content": "Colaborăm de 3 ani pentru întreținerea instalațiilor din bloc. Profesioniști adevărați!"
+        },
+        {
+          "name": "Elena Ionescu",
+          "role": "Proprietar Vilă",
+          "content": "Au renovat complet instalațiile sanitare. Lucrare impecabilă și la termen!"
+        }
+      ]
+    },
+    "cta": {
+      "title": "Ai Nevoie de un Instalator?",
+      "subtitle": "Suntem aici să te ajutăm 24/7",
+      "button": "Sună Acum"
+    }
+  },
+  "services": {
+    "title": "Serviciile Noastre Profesionale",
+    "subtitle": "Oferim o gamă completă de servicii de instalații sanitare",
+    "list": [
+      {
+        "title": "Reparații de Urgență",
+        "description": "Intervenții rapide pentru avarii, scurgeri și blocaje. Disponibili non-stop.",
+        "features": ["Intervenție în 30 minute", "Disponibil 24/7", "Prețuri corecte"]
+      },
+      {
+        "title": "Instalații Sanitare Noi",
+        "description": "Montaj profesional de instalații pentru construcții noi și renovări.",
+        "features": ["Proiectare gratuită", "Materiale de calitate", "Garanție 2 ani"]
+      },
+      {
+        "title": "Desfundare Canalizare",
+        "description": "Desfundăm rapid și eficient orice tip de canalizare blocată.",
+        "features": ["Echipamente moderne", "Fără murdărie", "Rezultate garantate"]
+      },
+      {
+        "title": "Montaj Centrale Termice",
+        "description": "Instalare și configurare centrale termice de toate tipurile.",
+        "features": ["Autorizație ISCIR", "Service inclus 1 an", "Consultanță gratuită"]
+      },
+      {
+        "title": "Detectare Pierderi",
+        "description": "Localizare precisă a pierderilor de apă fără spargeri inutile.",
+        "features": ["Tehnologie avansată", "Fără distrugeri", "Raport detaliat"]
+      },
+      {
+        "title": "Întreținere Periodică",
+        "description": "Pachete de întreținere pentru a preveni problemele costisitoare.",
+        "features": ["Verificări regulate", "Piese incluse", "Rapoarte lunare"]
+      }
+    ],
+    "cta": {
+      "title": "Nu Ai Găsit Ce Cauți?",
+      "description": "Contactează-ne pentru orice problemă de instalații",
+      "button": "Contactează-ne"
+    }
+  },
+  "projects": {
+    "title": "Proiectele Noastre Recente",
+    "subtitle": "Lucrări de calitate care vorbesc de la sine",
+    "viewDetails": "Vezi Detalii",
+    "list": [
+      {
+        "title": "Renovare Completă Bloc M15",
+        "category": "Instalații Complexe",
+        "description": "Înlocuire completă a sistemului de apă și canalizare pentru 40 apartamente"
+      },
+      {
+        "title": "Vilă Premium Pipera",
+        "category": "Rezidențial Lux",
+        "description": "Sistem complet de instalații sanitare și termice pentru vilă de 450mp"
+      },
+      {
+        "title": "Urgență Spital Privat",
+        "category": "Comercial",
+        "description": "Reparație de urgență sistem de încălzire în timpul iernii"
+      },
+      {
+        "title": "Complex Rezidențial Nou",
+        "category": "Construcții Noi",
+        "description": "Instalații complete pentru 120 apartamente noi"
+      }
+    ]
+  },
+  "about": {
+    "title": "Despre AquaPro Master",
+    "subtitle": "Partenerul tău de încredere pentru instalații sanitare din 2009",
+    "story": {
+      "title": "Povestea Noastră",
+      "content": "Fondată în 2009, AquaPro Master a devenit unul dintre liderii în domeniul instalațiilor sanitare din București. Cu o echipă de peste 20 de specialiști certificați, am realizat peste 5000 de proiecte rezidențiale și comerciale."
+    },
+    "mission": {
+      "title": "Misiunea Noastră",
+      "content": "Să oferim servicii de instalații de cea mai înaltă calitate, la prețuri corecte, cu focus pe satisfacția completă a clienților."
+    },
+    "values": {
+      "title": "Valorile Noastre",
+      "list": ["Profesionalism", "Punctualitate", "Transparență", "Calitate", "Inovație"]
+    },
+    "team": {
+      "title": "Echipa Noastră",
+      "subtitle": "Profesioniști dedicați cu pasiune pentru excelență",
+      "members": [
+        {
+          "name": "Andrei Marinescu",
+          "role": "Director General",
+          "bio": "15 ani experiență în instalații"
+        },
+        {
+          "name": "Mihai Constantinescu",
+          "role": "Șef Echipă Tehnică",
+          "bio": "Specialist autorizat ANRE și ISCIR"
+        },
+        {
+          "name": "Raluca Popescu",
+          "role": "Manager Relații Clienți",
+          "bio": "Dedicată satisfacției clienților"
+        }
+      ]
+    },
+    "certifications": {
+      "title": "Certificări și Autorizații",
+      "list": ["Autorizație ANRE", "Certificare ISCIR", "ISO 9001:2015", "Membru ARSC"]
+    }
+  },
+  "contact": {
+    "title": "Contactează-ne",
+    "subtitle": "Suntem aici să te ajutăm cu orice problemă de instalații",
+    "info": {
+      "title": "Informații de Contact",
+      "address": "Adresă",
+      "phone": "Telefon",
+      "email": "Email",
+      "hours": "Program"
+    },
+    "form": {
+      "title": "Trimite-ne un Mesaj",
+      "name": "Nume Complet",
+      "email": "Adresă Email",
+      "phone": "Telefon",
+      "service": "Serviciu Dorit",
+      "message": "Mesajul Tău",
+      "submit": "Trimite Mesaj",
+      "success": "Mesaj trimis cu succes! Te vom contacta în curând.",
+      "error": "A apărut o eroare. Te rugăm să încerci din nou."
+    },
+    "emergency": {
+      "title": "Urgență?",
+      "subtitle": "Pentru urgențe, sună direct la:",
+      "button": "Sună pentru Urgențe"
+    }
+  },
+  "footer": {
+    "about": {
+      "title": "Despre Noi",
+      "description": "AquaPro Master - Liderul instalațiilor sanitare din București. Servicii profesionale de peste 15 ani."
+    },
+    "quickLinks": "Linkuri Rapide",
+    "services": "Servicii Populare",
+    "contact": "Contact Rapid",
+    "copyright": "© 2024 AquaPro Master Instalații. Toate drepturile rezervate.",
+    "socialMedia": {
+      "facebook": "Facebook",
+      "instagram": "Instagram",
+      "linkedin": "LinkedIn"
+    }
+  },
+  "seo": {
+    "home": {
+      "title": "Instalator Sanitar București - Urgențe 24/7 | AquaPro Master",
+      "description": "Instalator autorizat București. Reparații urgente, instalații noi, desfundări. Intervenție rapidă, prețuri corecte. Sună acum: 0722 123 456"
+    },
+    "services": {
+      "title": "Servicii Instalații Sanitare București - AquaPro Master",
+      "description": "Servicii complete instalații sanitare: reparații urgente, montaj centrale, desfundări, detectare pierderi. Garanție 2 ani. Estimare gratuită."
+    },
+    "projects": {
+      "title": "Portofoliu Lucrări Instalații - AquaPro Master București",
+      "description": "Vezi proiectele noastre de instalații sanitare. Peste 5000 lucrări finalizate în București și Ilfov. Clienți mulțumiți din 2009."
+    },
+    "about": {
+      "title": "Despre Noi - AquaPro Master Instalații Sanitare",
+      "description": "Echipă certificată cu 15 ani experiență în instalații sanitare. Autorizați ANRE și ISCIR. Peste 5000 clienți mulțumiți în București."
+    },
+    "contact": {
+      "title": "Contact Instalator București - AquaPro Master",
+      "description": "Contactează cel mai bun instalator din București. Urgențe 24/7, estimări gratuite. Telefon: 0722 123 456. Răspuns rapid garantat."
+    }
+  }
+}
