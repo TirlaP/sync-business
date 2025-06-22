@@ -33,14 +33,14 @@ export default function BlogSidebar() {
       {/* Search */}
       <div className="bg-white rounded-2xl shadow-lg p-6">
         <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-          <Search className="w-5 h-5 mr-2 text-primary-600" />
+          <Search className="w-5 h-5 mr-2 text-blue-600" />
           Caută
         </h3>
         <div className="relative">
           <input
             type="text"
             placeholder="Caută articole..."
-            className="w-full px-4 py-3 pr-10 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
+            className="w-full px-4 py-3 pr-10 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
           />
           <Search className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
         </div>
@@ -52,7 +52,7 @@ export default function BlogSidebar() {
           {recentPosts.map((post) => (
             <li key={post.slug}>
               <Link href={`/blog/${post.slug}`} className="group">
-                <p className="text-gray-700 group-hover:text-primary-600 transition-colors">
+                <p className="text-gray-700 group-hover:text-blue-600 transition-colors">
                   {post.title}
                 </p>
                 <p className="text-sm text-gray-500 flex items-center mt-1">
@@ -75,8 +75,8 @@ export default function BlogSidebar() {
                 href={`/blog/category/${category.name.toLowerCase()}`}
                 className="flex items-center justify-between p-2 rounded-lg hover:bg-gray-50 transition-colors"
               >
-                <span className="text-gray-700 hover:text-primary-600">{category.name}</span>
-                <span className="px-2 py-1 bg-primary-100 text-primary-700 rounded-full text-xs">
+                <span className="text-gray-700 hover:text-blue-600">{category.name}</span>
+                <span className="px-2 py-1 bg-blue-100 text-blue-700 rounded-full text-xs">
                   {category.count}
                 </span>
               </Link>
@@ -88,7 +88,7 @@ export default function BlogSidebar() {
       {/* Archives */}
       <div className="bg-white rounded-2xl shadow-lg p-6">
         <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-          <Calendar className="w-5 h-5 mr-2 text-primary-600" />
+          <Calendar className="w-5 h-5 mr-2 text-blue-600" />
           Arhive
         </h3>
         <ul className="space-y-2">
@@ -98,7 +98,7 @@ export default function BlogSidebar() {
                 href={`/blog/archive/${archive.month.toLowerCase().replace(' ', '-')}`}
                 className="flex items-center justify-between p-2 rounded-lg hover:bg-gray-50 transition-colors"
               >
-                <span className="text-gray-700 hover:text-primary-600">{archive.month}</span>
+                <span className="text-gray-700 hover:text-blue-600">{archive.month}</span>
                 <span className="text-sm text-gray-500">({archive.count})</span>
               </Link>
             </li>
@@ -108,7 +108,7 @@ export default function BlogSidebar() {
       {/* Tags */}
       <div className="bg-white rounded-2xl shadow-lg p-6">
         <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-          <Tag className="w-5 h-5 mr-2 text-primary-600" />
+          <Tag className="w-5 h-5 mr-2 text-blue-600" />
           Etichete
         </h3>
         <div className="flex flex-wrap gap-2">
@@ -116,7 +116,7 @@ export default function BlogSidebar() {
             <Link
               key={tag}
               href={`/blog/tag/${tag.toLowerCase().replace(' ', '-')}`}
-              className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm hover:bg-primary-100 hover:text-primary-700 transition-colors"
+              className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm hover:bg-blue-100 hover:text-blue-700 transition-colors"
             >
               {tag}
             </Link>
@@ -125,7 +125,7 @@ export default function BlogSidebar() {
       </div>
 
       {/* CTA Widget */}
-      <div className="bg-gradient-to-br from-primary-600 to-purple-600 rounded-2xl p-6 text-white text-center">
+      <div className="bg-blue-600 rounded-2xl p-6 text-white text-center">
         <h3 className="text-xl font-bold mb-3">
           Want to learn how to code in 8 weeks?
         </h3>
@@ -134,7 +134,7 @@ export default function BlogSidebar() {
         </p>
         <Link 
           href="/contact"
-          className="inline-block bg-white text-primary-700 px-6 py-2 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+          className="inline-block bg-white text-blue-700 px-6 py-2 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
         >
           Become Full-Stack &gt;
         </Link>
@@ -147,7 +147,7 @@ export default function BlogSidebar() {
           <div className="text-sm">
             <span className="font-medium text-gray-900">A WordPress Commenter</span>
             <span className="text-gray-500"> on </span>
-            <Link href="/blog/hello-world" className="text-primary-600 hover:underline">
+            <Link href="/blog/hello-world" className="text-blue-600 hover:underline">
               Hello world!
             </Link>
           </div>

@@ -14,7 +14,7 @@ export default function BlogHero() {
   const { ref, isInView } = useScrollAnimation()
 
   return (
-    <section className="relative py-20 bg-gradient-to-br from-indigo-50 to-purple-100">
+    <section className="relative py-20 bg-blue-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           {/* Breadcrumb */}
@@ -40,7 +40,7 @@ export default function BlogHero() {
             className="text-4xl md:text-6xl font-bold text-gray-900 mb-6"
           >
             Blog &
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">
+            <span className="block text-blue-600">
               Insights
             </span>
           </motion.h1>
@@ -68,7 +68,7 @@ export default function BlogHero() {
                 placeholder="Caută articole..."
                 className="w-full pl-12 pr-32 py-4 bg-white border border-gray-300 rounded-2xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-300 shadow-lg"
               />
-              <button className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-2 rounded-xl font-semibold hover:from-indigo-700 hover:to-purple-700 transition-all duration-300">
+              <button className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-blue-600 text-white px-6 py-2 rounded-xl font-semibold hover:bg-blue-700 transition-all duration-300">
                 Caută
               </button>
             </div>

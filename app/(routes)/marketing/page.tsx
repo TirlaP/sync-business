@@ -1,5 +1,5 @@
 import MarketingHero from '@/components/marketing/MarketingHero'
-import MarketingServices from '@/components/marketing/MarketingServices'
+import ParallaxSection from '@/components/marketing/ParallaxSection'
 import MarketingProcess from '@/components/marketing/MarketingProcess'
 import MarketingBenefits from '@/components/marketing/MarketingBenefits'
 import MarketingPortfolio from '@/components/marketing/MarketingPortfolio'
@@ -14,7 +14,7 @@ export default function MarketingPage() {
   return (
     <>
       <MarketingHero />
-      <MarketingServices />
+      <ParallaxSection />
       <MarketingProcess />
       <MarketingBenefits />
       <MarketingPortfolio />

@@ -16,16 +16,18 @@ import {
 } from 'lucide-react'
 import { motion, useInView } from 'framer-motion'
 import { useRef, useState } from 'react'
+import React from 'react'
+import { useRouter, useSearchParams } from 'next/navigation'
+import TeamDrawer from './TeamDrawer'
 
 const teamMembers = [
   {
     id: 1,
+    slug: 'mihai-maierean',
     name: 'Mihai Maierean',
-    role: 'Antreprenor & Business Strategist',
-    title: 'Founder & CEO',
-    avatar: '👨‍💼',
-    gradient: 'from-blue-500 via-indigo-600 to-blue-700',
-    bgGradient: 'from-blue-50 to-indigo-50',
+    role: 'Founder & CEO',
+    description: 'Expert în strategii de business și consultanță financiară cu peste 8 ani de experiență',
+    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2070&auto=format&fit=crop',
     specializations: [
       'Expert Contabilitate & Fiscal',
       'Business Strategy & Growth',
@@ -49,6 +51,7 @@ const teamMembers = [
   },
   {
     id: 2,
+    slug: 'petru-tirla',
     name: 'Petru Tirlă',
     role: 'Senior Full-Stack Developer',
     title: 'Technical Lead',
@@ -78,6 +81,7 @@ const teamMembers = [
   },
   {
     id: 3,
+    slug: 'mary-pauliuc',
     name: 'Mary Pauliuc',
     role: 'Marketing & Brand Strategist',
     title: 'Creative Director',
@@ -113,9 +117,17 @@ const stats = [
   { label: 'Certificări Profesionale', value: '25+', icon: Sparkles },
 ]
 
-export default function TeamMembers() {
+interface TeamMembersProps {
+  initialMemberId?: number
+}
+
+export default function TeamMembers({ initialMemberId }: TeamMembersProps) {
   const [hoveredMember, setHoveredMember] = useState<number | null>(null)
   const [selectedMember, setSelectedMember] = useState<number | null>(null)
+  const [drawerOpen, setDrawerOpen] = useState(false)
+  
+  const router = useRouter()
+  const searchParams = useSearchParams()
 
   const sectionRef = useRef(null)
   const titleRef = useRef(null)
@@ -126,6 +138,53 @@ export default function TeamMembers() {
   const titleInView = useInView(titleRef, { once: true, margin: "-50px" })
   const statsInView = useInView(statsRef, { once: true, margin: "-50px" })
   const teamInView = useInView(teamRef, { once: true, margin: "-50px" })
+
+  // Handle member selection from URL path or initial prop
+  React.useEffect(() => {
+    // If initialMemberId is provided (from dynamic route), use it
+    if (initialMemberId) {
+      setSelectedMember(initialMemberId)
+      setDrawerOpen(true)
+      return
+    }
+
+    const path = window.location.pathname
+    const pathParts = path.split('/')
+    
+    if (pathParts.length === 3 && pathParts[1] === 'echipa') {
+      const slug = pathParts[2]
+      const member = teamMembers.find(m => m.slug === slug)
+      if (member) {
+        setSelectedMember(member.id)
+        setDrawerOpen(true)
+      }
+    } else {
+      // Handle legacy query param format
+      const memberId = searchParams.get('member')
+      if (memberId) {
+        const id = parseInt(memberId)
+        setSelectedMember(id)
+        setDrawerOpen(true)
+      }
+    }
+  }, [searchParams, initialMemberId])
+
+  const handleMemberClick = (memberId: number) => {
+    const member = teamMembers.find(m => m.id === memberId)
+    if (member) {
+      setSelectedMember(memberId)
+      setDrawerOpen(true)
+      // Update URL without any navigation or state loss
+      window.history.pushState(null, '', `/echipa/${member.slug}`)
+    }
+  }
+
+  const handleDrawerClose = () => {
+    setDrawerOpen(false)
+    setSelectedMember(null)
+    // Update URL back to team page without navigation
+    window.history.pushState(null, '', '/echipa')
+  }
 
   return (
     <section ref={sectionRef} className="py-24 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
@@ -235,8 +294,8 @@ export default function TeamMembers() {
                           key={i}
                           className="absolute w-2 h-2 bg-white rounded-full"
                           style={{
-                            left: `${Math.random() * 100}%`,
-                            top: `${Math.random() * 100}%`,
+                            left: `${15 + i * 20}%`,
+                            top: `${25 + i * 15}%`,
                           }}
                           animate={{
                             y: [-20, -40, -20],
@@ -364,7 +423,7 @@ export default function TeamMembers() {
                       </motion.a>
 
                       <motion.button
-                        onClick={() => setSelectedMember(member.id)}
+                        onClick={() => handleMemberClick(member.id)}
                         className="flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-xl transition-colors text-sm font-medium"
                         whileHover={{ x: 5 }}
                       >
@@ -450,6 +509,13 @@ export default function TeamMembers() {
             </div>
           </div>
         </motion.div>
+
+        {/* Team Drawer */}
+        <TeamDrawer 
+          open={drawerOpen}
+          onClose={handleDrawerClose}
+          memberId={selectedMember}
+        />
       </div>
     </section>
   )

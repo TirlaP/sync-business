@@ -217,11 +217,13 @@ export default function BrandAngajatorServices() {
         </motion.div>
 
         {/* Tab Content */}
-        {activeTab === 'evaluation' && (
+        <div className="relative min-h-[600px]">
+          {/* Evaluation Tab */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: activeTab === 'evaluation' ? 1 : 0 }}
+            transition={{ duration: 0.3 }}
+            className={`${activeTab === 'evaluation' ? 'relative' : 'absolute inset-0 pointer-events-none'}`}
           >
             <div className="text-center mb-12">
               <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -238,7 +240,7 @@ export default function BrandAngajatorServices() {
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 50, scale: 0.9 }}
-                  animate={isInView ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 50, scale: 0.9 }}
+                  animate={isInView && activeTab === 'evaluation' ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 50, scale: 0.9 }}
                   transition={{ 
                     duration: 0.6, 
                     delay: index * 0.1,
@@ -307,13 +309,13 @@ export default function BrandAngajatorServices() {
               ))}
             </div>
           </motion.div>
-        )}
 
-        {activeTab === 'strategy' && (
+          {/* Strategy Tab */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: activeTab === 'strategy' ? 1 : 0 }}
+            transition={{ duration: 0.3 }}
+            className={`${activeTab === 'strategy' ? 'relative' : 'absolute inset-0 pointer-events-none'}`}
           >
             <div className="text-center mb-12">
               <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -330,7 +332,7 @@ export default function BrandAngajatorServices() {
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 30 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+                  animate={isInView && activeTab === 'strategy' ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   className="group p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100"
                   whileHover={{ y: -5 }}
@@ -356,7 +358,7 @@ export default function BrandAngajatorServices() {
               ))}
             </div>
           </motion.div>
-        )}
+        </div>
       </div>
     </section>
   )

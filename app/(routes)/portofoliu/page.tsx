@@ -1,3 +1,4 @@
+import { Suspense } from 'react'
 import PortfolioHero from '@/components/portfolio/PortfolioHero'
 import PortfolioGrid from '@/components/portfolio/PortfolioGrid'
 import PortfolioCTA from '@/components/portfolio/PortfolioCTA'
@@ -11,7 +12,9 @@ export default function PortfolioPage() {
   return (
     <>
       <PortfolioHero />
-      <PortfolioGrid />
+      <Suspense fallback={<div className="min-h-screen" />}>
+        <PortfolioGrid />
+      </Suspense>
       <PortfolioCTA />
     </>
   )

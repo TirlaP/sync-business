@@ -3,14 +3,9 @@
 import { 
   Calendar, 
   User, 
-  MessageCircle, 
   Clock, 
   ArrowRight, 
-  Eye, 
-  Heart,
-  Bookmark,
   TrendingUp,
-  Star,
   Tag
 } from 'lucide-react'
 import Link from 'next/link'
@@ -23,15 +18,12 @@ const blogPosts = [
     title: 'Strategii Avansate de Marketing Digital pentru 2024',
     author: 'Mihai Maierean',
     date: 'Ianuarie 2024',
-    comments: 12,
     category: 'Marketing Digital',
     excerpt: 'Descoperă cele mai eficiente strategii de marketing digital care vor domina în 2024. De la AI în content marketing la personalizarea avansată.',
     readTime: '8 min',
     slug: 'strategii-marketing-digital-2024',
-    views: '2.5K',
-    likes: 47,
-    gradient: 'from-purple-500 to-pink-500',
-    bgGradient: 'from-purple-50 to-pink-50',
+    gradient: 'bg-blue-600',
+    bgGradient: 'bg-blue-50',
     featured: true,
     image: '📊'
   },
@@ -40,15 +32,12 @@ const blogPosts = [
     title: 'Cum să Construiești un Brand Puternic în Era Digitală',
     author: 'Mary Pauliuc',
     date: 'Decembrie 2023',
-    comments: 23,
     category: 'Branding',
     excerpt: 'Ghid complet pentru construirea unei identități de brand memorabile care rezonează cu audiența ta și generează încredere.',
     readTime: '10 min',
     slug: 'construire-brand-puternic',
-    views: '3.8K',
-    likes: 89,
-    gradient: 'from-blue-500 to-cyan-500',
-    bgGradient: 'from-blue-50 to-cyan-50',
+    gradient: 'bg-blue-600',
+    bgGradient: 'bg-blue-50',
     featured: false,
     image: '🎨'
   },
@@ -57,15 +46,12 @@ const blogPosts = [
     title: 'Optimizarea Conversiilor: De la Trafic la Vânzări',
     author: 'Petru Tirlă',
     date: 'Noiembrie 2023',
-    comments: 34,
     category: 'Web Development',
     excerpt: 'Strategii tehnice și de UX pentru transformarea vizitatorilor website-ului în clienți plătitori. Cazuri de studiu reale incluse.',
     readTime: '12 min',
     slug: 'optimizare-conversii-trafic-vanzari',
-    views: '4.2K',
-    likes: 156,
-    gradient: 'from-emerald-500 to-teal-500',
-    bgGradient: 'from-emerald-50 to-teal-50',
+    gradient: 'bg-blue-600',
+    bgGradient: 'bg-blue-50',
     featured: true,
     image: '🚀'
   },
@@ -74,15 +60,12 @@ const blogPosts = [
     title: 'Automatizarea Proceselor de Business cu AI',
     author: 'Mihai Maierean',
     date: 'Octombrie 2023',
-    comments: 18,
     category: 'Tehnologie',
     excerpt: 'Cum să implementezi soluții de inteligență artificială pentru automatizarea proceselor și creșterea eficienței operaționale.',
     readTime: '15 min',
     slug: 'automatizare-procese-business-ai',
-    views: '1.9K',
-    likes: 67,
-    gradient: 'from-orange-500 to-red-500',
-    bgGradient: 'from-orange-50 to-red-50',
+    gradient: 'bg-blue-600',
+    bgGradient: 'bg-blue-50',
     featured: false,
     image: '🤖'
   },
@@ -91,15 +74,12 @@ const blogPosts = [
     title: 'Employer Branding: Atragerea Talentelor de Top',
     author: 'Mary Pauliuc',
     date: 'Septembrie 2023',
-    comments: 29,
     category: 'HR & Recruiting',
     excerpt: 'Strategii proven pentru construirea unei culturi organizaționale care atrage și reține cei mai buni profesioniști din industrie.',
     readTime: '9 min',
     slug: 'employer-branding-atragere-talente',
-    views: '2.1K',
-    likes: 94,
-    gradient: 'from-violet-500 to-purple-500',
-    bgGradient: 'from-violet-50 to-purple-50',
+    gradient: 'bg-blue-600',
+    bgGradient: 'bg-blue-50',
     featured: false,
     image: '👥'
   },
@@ -108,15 +88,12 @@ const blogPosts = [
     title: 'Finanțele Digitale: Instrumente și Strategii 2024',
     author: 'Mihai Maierean',
     date: 'August 2023',
-    comments: 41,
     category: 'Finanțe',
     excerpt: 'Revoluționează managementul financiar al afacerii tale cu cele mai noi instrumente digitale și strategii de optimizare.',
     readTime: '11 min',
     slug: 'finante-digitale-instrumente-strategii',
-    views: '3.3K',
-    likes: 128,
-    gradient: 'from-indigo-500 to-blue-500',
-    bgGradient: 'from-indigo-50 to-blue-50',
+    gradient: 'bg-blue-600',
+    bgGradient: 'bg-blue-50',
     featured: true,
     image: '💰'
   }
@@ -124,46 +101,20 @@ const blogPosts = [
 
 export default function BlogGrid() {
   const [hoveredPost, setHoveredPost] = useState<number | null>(null)
-  const [likedPosts, setLikedPosts] = useState(new Set())
-  const [bookmarkedPosts, setBookmarkedPosts] = useState(new Set())
   
   const sectionRef = useRef(null)
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" })
-
-  const handleLike = (postId: number) => {
-    setLikedPosts(prev => {
-      const newSet = new Set(prev)
-      if (newSet.has(postId)) {
-        newSet.delete(postId)
-      } else {
-        newSet.add(postId)
-      }
-      return newSet
-    })
-  }
-
-  const handleBookmark = (postId: number) => {
-    setBookmarkedPosts(prev => {
-      const newSet = new Set(prev)
-      if (newSet.has(postId)) {
-        newSet.delete(postId)
-      } else {
-        newSet.add(postId)
-      }
-      return newSet
-    })
-  }
 
   return (
     <section ref={sectionRef} className="py-24 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
       {/* Background decorations */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 -left-32 w-80 h-80 bg-gradient-to-br from-indigo-400/5 to-purple-400/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 -right-32 w-80 h-80 bg-gradient-to-br from-pink-400/5 to-blue-400/5 rounded-full blur-3xl" />
+        <div className="absolute top-1/4 -left-32 w-80 h-80 bg-blue-400/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 -right-32 w-80 h-80 bg-blue-400/5 rounded-full blur-3xl" />
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 gap-8 max-w-4xl mx-auto">
           {blogPosts.map((post, index) => (
             <motion.article
               key={post.id}
@@ -179,24 +130,15 @@ export default function BlogGrid() {
               onHoverEnd={() => setHoveredPost(null)}
             >
               <motion.div
-                className={`relative bg-gradient-to-br ${post.bgGradient} rounded-3xl border border-white/50 shadow-lg backdrop-blur-sm transition-all duration-500 overflow-hidden`}
+                className={`relative ${post.bgGradient} rounded-3xl border border-white/50 shadow-lg backdrop-blur-sm transition-all duration-500 overflow-hidden`}
                 whileHover={{ 
                   y: -8,
                   transition: { duration: 0.3, ease: "easeOut" }
                 }}
               >
-                {/* Featured badge */}
-                {post.featured && (
-                  <div className="absolute -top-3 -right-3 z-20">
-                    <div className="bg-gradient-to-r from-yellow-400 to-orange-400 text-white px-3 py-1 rounded-2xl text-xs font-bold shadow-lg flex items-center gap-1">
-                      <Star className="w-3 h-3 fill-current" />
-                      Trending
-                    </div>
-                  </div>
-                )}
 
                 {/* Header with category and emoji */}
-                <div className={`relative p-6 bg-gradient-to-br ${post.gradient} overflow-hidden`}>
+                <div className={`relative p-6 ${post.gradient} overflow-hidden`}>
                   {/* Background pattern */}
                   <div className="absolute inset-0 opacity-20">
                     {[...Array(4)].map((_, i) => (
@@ -254,69 +196,25 @@ export default function BlogGrid() {
                   </p>
 
                   {/* Author and Date */}
-                  <div className="flex items-center gap-4 mb-6 pb-6 border-b border-gray-200/50">
-                    <div className="flex items-center gap-2">
-                      <User className="w-4 h-4 text-gray-400" />
-                      <span className="text-sm text-gray-600 font-medium">{post.author}</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <Calendar className="w-4 h-4 text-gray-400" />
-                      <span className="text-sm text-gray-500">{post.date}</span>
-                    </div>
-                  </div>
-
-                  {/* Stats and Actions */}
                   <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-4 text-sm text-gray-500">
-                      <div className="flex items-center gap-1">
-                        <Eye className="w-4 h-4" />
-                        <span>{post.views}</span>
+                    <div className="flex items-center gap-4">
+                      <div className="flex items-center gap-2">
+                        <User className="w-4 h-4 text-gray-400" />
+                        <span className="text-sm text-gray-600 font-medium">{post.author}</span>
                       </div>
-                      <div className="flex items-center gap-1">
-                        <MessageCircle className="w-4 h-4" />
-                        <span>{post.comments}</span>
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <Heart className={`w-4 h-4 ${likedPosts.has(post.id) ? 'fill-red-500 text-red-500' : ''}`} />
-                        <span>{post.likes + (likedPosts.has(post.id) ? 1 : 0)}</span>
+                      <div className="flex items-center gap-2">
+                        <Calendar className="w-4 h-4 text-gray-400" />
+                        <span className="text-sm text-gray-500">{post.date}</span>
                       </div>
                     </div>
 
-                    <div className="flex items-center gap-2">
-                      <motion.button
-                        onClick={() => handleLike(post.id)}
-                        className={`p-2 rounded-xl transition-all duration-300 ${
-                          likedPosts.has(post.id) 
-                            ? 'bg-red-100 text-red-600' 
-                            : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                        }`}
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.9 }}
-                      >
-                        <Heart className={`w-4 h-4 ${likedPosts.has(post.id) ? 'fill-current' : ''}`} />
-                      </motion.button>
-                      
-                      <motion.button
-                        onClick={() => handleBookmark(post.id)}
-                        className={`p-2 rounded-xl transition-all duration-300 ${
-                          bookmarkedPosts.has(post.id) 
-                            ? 'bg-blue-100 text-blue-600' 
-                            : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                        }`}
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.9 }}
-                      >
-                        <Bookmark className={`w-4 h-4 ${bookmarkedPosts.has(post.id) ? 'fill-current' : ''}`} />
-                      </motion.button>
-
-                      <Link
-                        href={`/blog/${post.slug}`}
-                        className="group/btn flex items-center gap-2 bg-gray-900 text-white px-4 py-2 rounded-xl font-medium hover:bg-gray-800 transition-all duration-300"
-                      >
-                        <span className="text-sm">Citește</span>
-                        <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-                      </Link>
-                    </div>
+                    <Link
+                      href={`/blog/${post.slug}`}
+                      className="group/btn flex items-center gap-2 bg-gray-900 text-white px-4 py-2 rounded-xl font-medium hover:bg-gray-800 transition-all duration-300"
+                    >
+                      <span className="text-sm">Citește</span>
+                      <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                    </Link>
                   </div>
                 </div>
 
@@ -325,7 +223,7 @@ export default function BlogGrid() {
                   {[...Array(3)].map((_, i) => (
                     <motion.div
                       key={i}
-                      className={`absolute w-1 h-1 bg-gradient-to-r ${post.gradient} rounded-full`}
+                      className="absolute w-1 h-1 bg-blue-600 rounded-full"
                       style={{
                         left: `${20 + i * 25}%`,
                         bottom: `${20 + i * 15}%`,
@@ -356,7 +254,7 @@ export default function BlogGrid() {
           transition={{ duration: 0.6, delay: 0.8 }}
           className="text-center mt-16"
         >
-          <div className="bg-gradient-to-r from-indigo-600 to-purple-600 rounded-3xl p-12 text-white relative overflow-hidden">
+          <div className="bg-blue-600 rounded-3xl p-12 text-white relative overflow-hidden">
             {/* Background pattern */}
             <div className="absolute inset-0 opacity-10">
               <div className="w-full h-full" style={{

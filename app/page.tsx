@@ -1,5 +1,5 @@
 import Hero from '@/components/home/Hero'
-import Services from '@/components/home/Services'
+import ServicesShowcase from '@/components/home/ServicesShowcase'
 import About from '@/components/home/About'
 import Process from '@/components/home/Process'
 import Benefits from '@/components/home/Benefits'
@@ -9,7 +9,7 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <Services />
+      <ServicesShowcase />
       <About />
       <Process />
       <Benefits />

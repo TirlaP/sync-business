@@ -1,5 +1,6 @@
+import { Suspense } from 'react'
 import TeamHero from '@/components/team/TeamHero'
-import TeamMembers from '@/components/team/TeamMembers'
+import TeamMembersSimple from '@/components/team/TeamMembersSimple'
 import TeamValues from '@/components/team/TeamValues'
 import TeamCTA from '@/components/team/TeamCTA'
 
@@ -12,7 +13,9 @@ export default function TeamPage() {
   return (
     <>
       <TeamHero />
-      <TeamMembers />
+      <Suspense fallback={<div className="min-h-screen" />}>
+        <TeamMembersSimple />
+      </Suspense>
       <TeamValues />
       <TeamCTA />
     </>
