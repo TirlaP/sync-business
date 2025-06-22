@@ -1,4 +1,5 @@
 import { Building2, Mail, MapPin, Phone, Clock, Facebook, Instagram, Linkedin } from 'lucide-react'
+import { contactInfo } from '@/data/contactInfo'
 
 export default function ContactInfo() {
   return (
@@ -12,7 +13,7 @@ export default function ContactInfo() {
             <MapPin className="w-5 h-5 text-primary-600 flex-shrink-0 mt-1" />
             <div>
               <p className="font-medium text-gray-900">Adresă</p>
-              <p className="text-gray-600">Strada Principală, Suceava, România</p>
+              <p className="text-gray-600">{contactInfo.address.city}, {contactInfo.address.street}</p>
             </div>
           </div>
           
@@ -20,7 +21,7 @@ export default function ContactInfo() {
             <Phone className="w-5 h-5 text-primary-600 flex-shrink-0 mt-1" />
             <div>
               <p className="font-medium text-gray-900">Telefon</p>
-              <p className="text-gray-600">+40 XXX XXX XXX</p>
+              <p className="text-gray-600">{contactInfo.phone}</p>
             </div>
           </div>
           
@@ -28,7 +29,7 @@ export default function ContactInfo() {
             <Mail className="w-5 h-5 text-primary-600 flex-shrink-0 mt-1" />
             <div>
               <p className="font-medium text-gray-900">Email</p>
-              <p className="text-gray-600">contact@syncbusiness.ro</p>
+              <p className="text-gray-600">{contactInfo.email}</p>
             </div>
           </div>
           
@@ -36,9 +37,8 @@ export default function ContactInfo() {
             <Clock className="w-5 h-5 text-primary-600 flex-shrink-0 mt-1" />
             <div>
               <p className="font-medium text-gray-900">Program</p>
-              <p className="text-gray-600">Luni-Vineri: 9:00 - 18:00</p>
-              <p className="text-gray-600">Sâmbătă: 10:00 - 14:00</p>
-              <p className="text-gray-600">Duminică: Închis</p>
+              <p className="text-gray-600">{contactInfo.program.workDays}</p>
+              <p className="text-gray-600">{contactInfo.program.sunday}</p>
             </div>
           </div>
         </div>
@@ -62,11 +62,21 @@ export default function ContactInfo() {
           <div>
             <div className="flex items-center space-x-2 mb-2">
               <Building2 className="w-5 h-5 text-primary-600" />
-              <p className="font-medium text-gray-900">P.F. LUUC MARCICA</p>
+              <p className="font-medium text-gray-900">PAULIUC MARICICA</p>
             </div>
             <p className="text-gray-600 text-sm">PERSOANĂ FIZICĂ AUTORIZATĂ</p>
             <p className="text-gray-600 text-sm">CUI: 43690893</p>
             <p className="text-gray-600 text-sm">F33/85/2021</p>
+            <p className="text-gray-600 text-sm">Suceava, Județul Suceava</p>
+          </div>
+          
+          <div>
+            <div className="flex items-center space-x-2 mb-2">
+              <Building2 className="w-5 h-5 text-primary-600" />
+              <p className="font-medium text-gray-900">ZEPHYRWEB STUDIOS SRL</p>
+            </div>
+            <p className="text-gray-600 text-sm">CUI: 49916524</p>
+            <p className="text-gray-600 text-sm">J33/721/2024</p>
             <p className="text-gray-600 text-sm">Suceava, Județul Suceava</p>
           </div>
         </div>
@@ -76,15 +86,15 @@ export default function ContactInfo() {
       <div className="bg-primary-600 rounded-2xl p-8 text-white text-center">
         <h3 className="text-xl font-semibold mb-4">Urmărește-ne</h3>
         <div className="flex justify-center space-x-4">
-          <a href="https://facebook.com/syncbusiness" target="_blank" rel="noopener noreferrer" 
+          <a href={contactInfo.social.facebook} target="_blank" rel="noopener noreferrer" 
              className="p-3 bg-white/20 rounded-lg hover:bg-white/30 transition-colors">
             <Facebook className="w-6 h-6" />
           </a>
-          <a href="https://instagram.com/syncbusiness" target="_blank" rel="noopener noreferrer"
+          <a href={contactInfo.social.instagram} target="_blank" rel="noopener noreferrer"
              className="p-3 bg-white/20 rounded-lg hover:bg-white/30 transition-colors">
             <Instagram className="w-6 h-6" />
           </a>
-          <a href="https://linkedin.com/company/syncbusiness" target="_blank" rel="noopener noreferrer"
+          <a href={contactInfo.social.linkedin} target="_blank" rel="noopener noreferrer"
              className="p-3 bg-white/20 rounded-lg hover:bg-white/30 transition-colors">
             <Linkedin className="w-6 h-6" />
           </a>

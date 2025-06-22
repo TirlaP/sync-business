@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { Facebook, Instagram, Linkedin, MapPin, Phone, Mail } from 'lucide-react'
+import { contactInfo } from '@/data/contactInfo'
 
 export default function Footer() {
   const services = [
@@ -14,8 +15,10 @@ export default function Footer() {
   const company = [
     { href: '/echipa', label: 'Echipa' },
     { href: '/contact', label: 'Contact' },
+    { href: '/faq', label: 'Întrebări Frecvente' },
     { href: '/politica-gdpr', label: 'Politica GDPR' },
     { href: '/politica-cookie', label: 'Politica Cookie' },
+    { href: '/termeni-conditii', label: 'Termeni și Condiții' },
   ]
 
   return (
@@ -36,15 +39,15 @@ export default function Footer() {
             <div className="space-y-2 text-gray-400">
               <div className="flex items-center space-x-2">
                 <MapPin className="w-5 h-5" />
-                <span>Suceava, România</span>
+                <span>{contactInfo.address.full}</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Phone className="w-5 h-5" />
-                <span>+40 XXX XXX XXX</span>
+                <span>{contactInfo.phone}</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Mail className="w-5 h-5" />
-                <span>contact@syncbusiness.ro</span>
+                <span>{contactInfo.email}</span>
               </div>
             </div>
           </div>
@@ -87,13 +90,13 @@ export default function Footer() {
         <div className="pt-8 border-t border-gray-800">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-gray-400 text-sm">
-              Sync Business Agency 2024 © All rights reserved
+              Sync Business Agency {new Date().getFullYear()} © All rights reserved
             </p>
             <div className="flex items-center space-x-4">
               <span className="text-gray-400 text-sm">Follow us on</span>
               <div className="flex space-x-3">
                 <a 
-                  href="https://facebook.com/syncbusiness" 
+                  href={contactInfo.social.facebook} 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="text-gray-400 hover:text-primary-400 transition-colors"
@@ -101,7 +104,7 @@ export default function Footer() {
                   <Facebook className="w-5 h-5" />
                 </a>
                 <a 
-                  href="https://instagram.com/syncbusiness" 
+                  href={contactInfo.social.instagram} 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="text-gray-400 hover:text-primary-400 transition-colors"
@@ -109,7 +112,7 @@ export default function Footer() {
                   <Instagram className="w-5 h-5" />
                 </a>
                 <a 
-                  href="https://linkedin.com/company/syncbusiness" 
+                  href={contactInfo.social.linkedin} 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="text-gray-400 hover:text-primary-400 transition-colors"

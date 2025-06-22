@@ -2,6 +2,7 @@
 
 import { ChevronDown, Menu, X } from 'lucide-react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { useState, useRef } from 'react'
 
@@ -38,11 +39,27 @@ export default function Navigation() {
           <div className="px-6 lg:px-8">
             <div className="flex justify-between items-center h-16">
               {/* Logo */}
-              <Link href="/" className="flex items-center space-x-2 group">
-                <div className="bg-primary-600 text-white font-bold text-xl px-3 py-1 rounded-lg transition-transform group-hover:scale-105">
-                  SYNC
+              <Link href="/" className="flex items-center group">
+                {/* Desktop Logo */}
+                <div className="hidden sm:block">
+                  <Image 
+                    src="https://res.cloudinary.com/dxncqwsnw/image/upload/v1750621103/Asset-1_zunst8.png"
+                    alt="SYNC Business Agency"
+                    width={150}
+                    height={40}
+                    className="h-10 w-auto transition-transform group-hover:scale-105"
+                  />
                 </div>
-                <span className="font-bold text-gray-900 text-lg">Business Agency</span>
+                {/* Mobile Logo */}
+                <div className="block sm:hidden">
+                  <Image 
+                    src="https://res.cloudinary.com/dxncqwsnw/image/upload/v1750621143/Logo-removebg-preview_bl0hsv.png"
+                    alt="SYNC Business Agency"
+                    width={40}
+                    height={40}
+                    className="h-10 w-10 transition-transform group-hover:scale-105"
+                  />
+                </div>
               </Link>
 
               {/* Desktop Navigation - Center */}

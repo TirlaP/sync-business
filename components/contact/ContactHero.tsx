@@ -1,13 +1,12 @@
 'use client'
 
-import { 
-  Mail, 
-  MapPin, 
-  Phone, 
-  MessageCircle
-} from 'lucide-react'
-import { motion } from 'framer-motion'
 import { useScrollAnimation } from '@/hooks/useScrollAnimation'
+import { motion } from 'framer-motion'
+import {
+  Mail,
+  MapPin,
+  Phone
+} from 'lucide-react'
 
 export default function ContactHero() {
   const { ref, isInView } = useScrollAnimation()
@@ -49,7 +48,7 @@ export default function ContactHero() {
               { 
                 icon: Phone, 
                 label: 'Telefon', 
-                value: '+40 XXX XXX XXX', 
+                value: '+40 745 823 960', 
                 color: 'from-green-500 to-emerald-500' 
               },
               { 

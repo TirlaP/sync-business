@@ -3,15 +3,8 @@
 import { useEffect, useRef, useState } from 'react'
 import { ExternalLink } from 'lucide-react'
 import Link from 'next/link'
-
-const portfolioClients = [
-  { name: 'BE ZONE', logo: '🏢', color: 'from-blue-500 to-blue-600' },
-  { name: 'Casa Napoca', logo: '🏠', color: 'from-green-500 to-green-600' },
-  { name: 'iConts', logo: '💼', color: 'from-purple-500 to-purple-600' },
-  { name: 'MANDACHI', logo: '🏗️', color: 'from-orange-500 to-orange-600' },
-  { name: 'SOLVAM', logo: '📊', color: 'from-red-500 to-red-600' },
-  { name: 'FLORENTINI', logo: '🌸', color: 'from-pink-500 to-pink-600' },
-]
+import Image from 'next/image'
+import { portfolioClients } from '@/data/portfolioClients'
 
 export default function MarketingPortfolio() {
   const [isVisible, setIsVisible] = useState(false)
@@ -46,17 +39,23 @@ export default function MarketingPortfolio() {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 mb-12">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 mb-12">
           {portfolioClients.map((client, index) => (
             <div
               key={client.name}
               className={`text-center ${isVisible ? 'animate-scale' : 'opacity-0'}`}
               style={{ animationDelay: `${index * 0.05}s` }}
             >
-              <div className={`w-24 h-24 mx-auto bg-gradient-to-br ${client.color} rounded-2xl flex items-center justify-center mb-3 hover:scale-110 transition-transform cursor-pointer shadow-lg`}>
-                <span className="text-4xl">{client.logo}</span>
+              <div className="w-24 h-24 mx-auto bg-white rounded-2xl flex items-center justify-center mb-3 hover:scale-110 transition-transform cursor-pointer shadow-lg border border-gray-100 p-2">
+                <Image 
+                  src={client.logo}
+                  alt={client.name}
+                  width={80}
+                  height={80}
+                  className="w-full h-full object-contain"
+                />
               </div>
-              <p className="font-medium text-gray-700">{client.name}</p>
+              <p className="font-medium text-gray-700 text-sm">{client.name}</p>
             </div>
           ))}
         </div>

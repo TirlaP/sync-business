@@ -7,6 +7,7 @@ import {
   DialogContent,
   DialogTitle,
 } from "@/components/ui/dialog"
+import Image from 'next/image'
 
 interface EbookModalProps {
   isOpen: boolean
@@ -64,7 +65,7 @@ export default function EbookModal({ isOpen, onClose }: EbookModalProps) {
               <div className="p-8 lg:p-12">
                 {isSubmitted ? (
                   <div className="text-center">
-                    <div className="w-20 h-20 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <div className="w-20 h-20 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
                       <CheckCircle className="w-10 h-10 text-white" />
                     </div>
                     
@@ -78,7 +79,7 @@ export default function EbookModal({ isOpen, onClose }: EbookModalProps) {
                     
                     <div className="flex justify-center gap-4 text-sm text-gray-500">
                       <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+                        <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse" />
                         <span>Descărcare automată</span>
                       </div>
                     </div>
@@ -86,14 +87,14 @@ export default function EbookModal({ isOpen, onClose }: EbookModalProps) {
                 ) : (
                   <>
                     <div className="mb-8">
-                      <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-green-100 to-emerald-100 rounded-full text-green-700 font-medium text-sm mb-6">
+                      <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-100 to-blue-200 rounded-full text-blue-700 font-medium text-sm mb-6">
                         <Download className="w-4 h-4" />
                         <span>Download Gratuit</span>
                       </div>
                       
                       <h2 className="text-3xl font-bold text-gray-900 mb-4">
                         Ghidul Complet pentru
-                        <span className="block text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-emerald-600">
+                        <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-700">
                           Afaceri de Succes
                         </span>
                       </h2>
@@ -114,7 +115,7 @@ export default function EbookModal({ isOpen, onClose }: EbookModalProps) {
                             type="text"
                             id="name"
                             required
-                            className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-300"
+                            className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
                             placeholder="Ex: Mihai Popescu"
                             value={formData.name}
                             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -132,7 +133,7 @@ export default function EbookModal({ isOpen, onClose }: EbookModalProps) {
                             type="email"
                             id="email"
                             required
-                            className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-300"
+                            className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
                             placeholder="Ex: mihai@compania.ro"
                             value={formData.email}
                             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -144,19 +145,19 @@ export default function EbookModal({ isOpen, onClose }: EbookModalProps) {
                         <label className="flex items-start gap-3 cursor-pointer group">
                           <input
                             type="checkbox"
-                            className="w-5 h-5 text-green-600 border-gray-300 rounded focus:ring-green-500 mt-1"
+                            className="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-blue-500 mt-1"
                             checked={formData.gdprConsent}
                             onChange={(e) => setFormData({ ...formData, gdprConsent: e.target.checked })}
                             required
                           />
                           <span className="text-sm text-gray-700 leading-relaxed">
                             Am citit și sunt de acord cu{' '}
-                            <a href="/termeni" className="text-green-600 hover:underline font-medium">
+                            <a href="/termeni-conditii" className="text-blue-600 hover:underline font-medium">
                               Termenii și condițiile
                             </a>{' '}
                             și cu{' '}
-                            <a href="/politica-gdpr" className="text-green-600 hover:underline font-medium">
-                              Politica de prelucrare a datelor
+                            <a href="/politica-gdpr" className="text-blue-600 hover:underline font-medium">
+                              Politica de prelucrare a datelor cu caracter personal
                             </a>
                           </span>
                         </label>
@@ -165,7 +166,7 @@ export default function EbookModal({ isOpen, onClose }: EbookModalProps) {
                       <button
                         type="submit"
                         disabled={isSubmitting}
-                        className="w-full bg-gradient-to-r from-green-600 to-emerald-600 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:shadow-2xl transform hover:-translate-y-1 disabled:opacity-70 disabled:cursor-not-allowed disabled:transform-none"
+                        className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:shadow-2xl transform hover:-translate-y-1 disabled:opacity-70 disabled:cursor-not-allowed disabled:transform-none"
                       >
                         {isSubmitting ? (
                           <div className="flex items-center justify-center gap-3">
@@ -185,20 +186,15 @@ export default function EbookModal({ isOpen, onClose }: EbookModalProps) {
               </div>
 
               {/* Right side - Ebook preview */}
-              <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-8 lg:p-12 flex items-center justify-center">
+              <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-8 lg:p-12 flex items-center justify-center">
                 <div className="text-center">
-                  <div className="w-48 h-64 bg-white rounded-2xl shadow-2xl mb-6 mx-auto border border-green-200 p-6 flex flex-col justify-between">
-                    <div>
-                      <div className="w-full h-3 bg-green-500 rounded mb-4"></div>
-                      <div className="space-y-2">
-                        <div className="h-2 bg-gray-300 rounded w-full"></div>
-                        <div className="h-2 bg-gray-300 rounded w-3/4"></div>
-                        <div className="h-2 bg-gray-300 rounded w-5/6"></div>
-                      </div>
-                    </div>
-                    <div className="text-xs font-bold text-green-600 text-center">
-                      SYNC Business Guide
-                    </div>
+                  <div className="relative w-64 h-80 mx-auto mb-6">
+                    <Image
+                      src="https://res.cloudinary.com/dxncqwsnw/image/upload/v1750621132/White-and-Blue-Modern-Business-Book-Cover-1_hcnuye.png"
+                      alt="Ebook Business Guide"
+                      fill
+                      className="object-contain drop-shadow-2xl"
+                    />
                   </div>
                   
                   <h3 className="text-xl font-bold text-gray-900 mb-2">

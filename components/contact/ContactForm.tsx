@@ -373,7 +373,7 @@ export default function ContactForm() {
               />
               <span className="text-sm text-gray-700 leading-relaxed">
                 Am citit și sunt de acord cu{' '}
-                <a href="/termeni" className="text-blue-600 hover:underline font-medium">
+                <a href="/termeni-conditii" className="text-blue-600 hover:underline font-medium">
                   Termenii și condițiile
                 </a>{' '}
                 și cu{' '}
