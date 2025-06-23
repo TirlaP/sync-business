@@ -12,8 +12,9 @@ import {
   Briefcase
 } from 'lucide-react'
 import { motion, useScroll, useTransform } from 'framer-motion'
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import { useScrollAnimation } from '@/hooks/useScrollAnimation'
+import SolicitaOfertaModal from '../layout/SolicitaOfertaModal'
 
 export default function ServicesHero() {
   const { ref, isInView } = useScrollAnimation()
@@ -22,6 +23,7 @@ export default function ServicesHero() {
   const y1 = useTransform(scrollY, [0, 300], [0, 50])
   const y2 = useTransform(scrollY, [0, 300], [0, -50])
   const opacity = useTransform(scrollY, [0, 300], [1, 0.8])
+  const [isOfertaModalOpen, setIsOfertaModalOpen] = useState(false)
 
   return (
     <section ref={containerRef} className="relative min-h-screen bg-gradient-to-br from-blue-900 via-indigo-900 to-purple-900 flex items-center justify-center overflow-hidden">
@@ -118,6 +120,7 @@ export default function ServicesHero() {
             className="flex flex-col sm:flex-row gap-6 justify-center mb-16"
           >
             <motion.button 
+              onClick={() => setIsOfertaModalOpen(true)}
               className="group relative bg-gradient-to-r from-blue-500 to-purple-600 text-white px-10 py-5 rounded-2xl font-bold text-lg overflow-hidden"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
@@ -127,19 +130,20 @@ export default function ServicesHero() {
               />
               <span className="relative flex items-center gap-3">
                 <Target className="w-6 h-6" />
-                Descoperă serviciile
+                Solicită ofertă
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </span>
             </motion.button>
             
             <motion.button 
+              onClick={() => setIsOfertaModalOpen(true)}
               className="group bg-white/10 backdrop-blur-sm text-white px-10 py-5 rounded-2xl font-bold text-lg border-2 border-white/20 hover:border-white/40 hover:bg-white/20 transition-all duration-300"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
             >
               <span className="flex items-center gap-3">
                 <Briefcase className="w-5 h-5" />
-                Consultanță gratuită
+                Solicită ofertă
               </span>
             </motion.button>
           </motion.div>
@@ -203,6 +207,12 @@ export default function ServicesHero() {
           </motion.div>
         </div>
       </motion.div>
+
+      {/* Modal */}
+      <SolicitaOfertaModal 
+        isOpen={isOfertaModalOpen} 
+        onClose={() => setIsOfertaModalOpen(false)} 
+      />
     </section>
   )
 }

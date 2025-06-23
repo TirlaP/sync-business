@@ -13,7 +13,6 @@ export default function Navigation() {
   const pathname = usePathname()
 
   const navLinks = [
-    { href: '/', label: 'Acasă' },
     { 
       href: '/services', 
       label: 'Servicii',
@@ -40,30 +39,17 @@ export default function Navigation() {
             <div className="flex justify-between items-center h-16">
               {/* Logo */}
               <Link href="/" className="flex items-center group">
-                {/* Desktop Logo */}
-                <div className="hidden sm:block">
-                  <Image 
-                    src="https://res.cloudinary.com/dxncqwsnw/image/upload/v1750621103/Asset-1_zunst8.png"
-                    alt="SYNC Business Agency"
-                    width={150}
-                    height={40}
-                    className="h-10 w-auto transition-transform group-hover:scale-105"
-                  />
-                </div>
-                {/* Mobile Logo */}
-                <div className="block sm:hidden">
-                  <Image 
-                    src="https://res.cloudinary.com/dxncqwsnw/image/upload/v1750621143/Logo-removebg-preview_bl0hsv.png"
-                    alt="SYNC Business Agency"
-                    width={40}
-                    height={40}
-                    className="h-10 w-10 transition-transform group-hover:scale-105"
-                  />
-                </div>
+                <Image 
+                  src="https://res.cloudinary.com/dxncqwsnw/image/upload/v1750621103/Asset-1_zunst8.png"
+                  alt="SYNC Business Agency"
+                  width={150}
+                  height={40}
+                  className="h-8 sm:h-10 w-auto transition-transform group-hover:scale-105"
+                />
               </Link>
 
               {/* Desktop Navigation - Center */}
-              <div className="hidden md:flex items-center space-x-8">
+              <div className="hidden lg:flex items-center space-x-8">
                 {navLinks.map((link) => (
                   <div key={link.href} className="relative">
                     {link.dropdown ? (
@@ -123,28 +109,31 @@ export default function Navigation() {
                 ))}
               </div>
               
-              {/* Right Button */}
-              <div className="hidden md:block">
-                <Link 
-                  href="/contact" 
-                  className="bg-primary-600 text-white px-6 py-2.5 rounded-lg font-semibold hover:bg-primary-700 transition-all duration-300 hover:shadow-lg"
-                >
-                  Solicită ofertă
-                </Link>
-              </div>
+              {/* Right side - Button and Menu */}
+              <div className="flex items-center gap-3">
+                {/* CTA Button - visible on tablet and up */}
+                <div className="hidden sm:block">
+                  <Link 
+                    href="/contact" 
+                    className="bg-primary-600 text-white px-4 md:px-6 py-2 md:py-2.5 rounded-lg font-semibold hover:bg-primary-700 transition-all duration-300 hover:shadow-lg text-sm md:text-base"
+                  >
+                    Solicită ofertă
+                  </Link>
+                </div>
 
-              {/* Mobile menu button */}
-              <button
-                onClick={() => setIsOpen(!isOpen)}
-                className="md:hidden text-gray-700 hover:text-primary-600 transition-colors"
-              >
-                {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-              </button>
+                {/* Mobile/Tablet menu button */}
+                <button
+                  onClick={() => setIsOpen(!isOpen)}
+                  className="lg:hidden text-gray-700 hover:text-primary-600 transition-colors"
+                >
+                  {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                </button>
+              </div>
             </div>
 
-            {/* Mobile Navigation */}
+            {/* Mobile/Tablet Navigation */}
             {isOpen && (
-              <div className="md:hidden border-t border-gray-100">
+              <div className="lg:hidden border-t border-gray-100">
                 <div className="py-4">
                   {navLinks.map((link) => (
                     <div key={link.href}>
@@ -184,10 +173,11 @@ export default function Navigation() {
                     </div>
                   ))}
                   
+                  {/* Only show CTA in dropdown on mobile */}
                   <Link 
                     href="/contact"
                     onClick={() => setIsOpen(false)}
-                    className="block mx-4 mt-4 bg-primary-600 text-white px-6 py-2.5 rounded-lg font-semibold text-center hover:bg-primary-700 transition-colors"
+                    className="block sm:hidden mx-4 mt-4 bg-primary-600 text-white px-6 py-2.5 rounded-lg font-semibold text-center hover:bg-primary-700 transition-colors"
                   >
                     Solicită ofertă
                   </Link>

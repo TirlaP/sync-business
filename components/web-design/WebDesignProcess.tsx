@@ -13,7 +13,8 @@ import {
   Palette
 } from 'lucide-react'
 import { motion, useInView } from 'framer-motion'
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
+import SolicitaOfertaModal from '../layout/SolicitaOfertaModal'
 
 const steps = [
   {
@@ -61,6 +62,7 @@ const steps = [
 export default function WebDesignProcess() {
   const sectionRef = useRef(null)
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" })
+  const [isOfertaModalOpen, setIsOfertaModalOpen] = useState(false)
 
   return (
     <section ref={sectionRef} className="py-24 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
@@ -235,14 +237,20 @@ export default function WebDesignProcess() {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button className="group inline-flex items-center justify-center bg-white text-blue-600 px-8 py-4 rounded-xl font-semibold hover:bg-gray-50 transition-all duration-300 hover:shadow-xl transform hover:-translate-y-1">
+                <button 
+                  onClick={() => setIsOfertaModalOpen(true)}
+                  className="group inline-flex items-center justify-center bg-white text-blue-600 px-8 py-4 rounded-xl font-semibold hover:bg-gray-50 transition-all duration-300 hover:shadow-xl transform hover:-translate-y-1"
+                >
                   <Rocket className="w-5 h-5 mr-2" />
-                  Începe proiectul
+                  Solicită ofertă
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
                 
-                <button className="group inline-flex items-center justify-center bg-transparent text-white px-8 py-4 rounded-xl font-semibold border-2 border-white/30 hover:border-white hover:bg-white/10 transition-all duration-300">
-                  Consultație gratuită
+                <button 
+                  onClick={() => setIsOfertaModalOpen(true)}
+                  className="group inline-flex items-center justify-center bg-transparent text-white px-8 py-4 rounded-xl font-semibold border-2 border-white/30 hover:border-white hover:bg-white/10 transition-all duration-300"
+                >
+                  Solicită ofertă
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
               </div>
@@ -250,6 +258,12 @@ export default function WebDesignProcess() {
           </div>
         </motion.div>
       </div>
+
+      {/* Modal */}
+      <SolicitaOfertaModal 
+        isOpen={isOfertaModalOpen} 
+        onClose={() => setIsOfertaModalOpen(false)} 
+      />
     </section>
   )
 }

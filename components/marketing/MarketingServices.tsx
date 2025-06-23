@@ -13,7 +13,8 @@ import {
   Award
 } from 'lucide-react'
 import { motion, useInView } from 'framer-motion'
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
+import SolicitaOfertaModal from '../layout/SolicitaOfertaModal'
 
 const services = [
   {
@@ -71,6 +72,7 @@ export default function MarketingServices() {
   const sectionRef = useRef(null)
   const titleRef = useRef(null)
   const servicesRef = useRef(null)
+  const [isOfertaModalOpen, setIsOfertaModalOpen] = useState(false)
   
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" })
   const titleInView = useInView(titleRef, { once: true, margin: "-50px" })
@@ -331,9 +333,12 @@ export default function MarketingServices() {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button className="group inline-flex items-center justify-center bg-white text-purple-600 px-8 py-4 rounded-xl font-semibold hover:bg-gray-50 transition-all duration-300 hover:shadow-xl transform hover:-translate-y-1">
+                <button 
+                  onClick={() => setIsOfertaModalOpen(true)}
+                  className="group inline-flex items-center justify-center bg-white text-purple-600 px-8 py-4 rounded-xl font-semibold hover:bg-gray-50 transition-all duration-300 hover:shadow-xl transform hover:-translate-y-1"
+                >
                   <Zap className="w-5 h-5 mr-2" />
-                  Începe acum
+                  Solicită ofertă
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
                 
@@ -346,6 +351,12 @@ export default function MarketingServices() {
           </div>
         </motion.div>
       </div>
+
+      {/* Modal */}
+      <SolicitaOfertaModal 
+        isOpen={isOfertaModalOpen} 
+        onClose={() => setIsOfertaModalOpen(false)} 
+      />
     </section>
   )
 }

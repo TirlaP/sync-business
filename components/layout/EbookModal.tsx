@@ -1,13 +1,13 @@
 'use client'
 
-import { useState } from 'react'
-import { Download, CheckCircle, User, Mail } from 'lucide-react'
 import {
   Dialog,
   DialogContent,
   DialogTitle,
 } from "@/components/ui/dialog"
+import { CheckCircle, Download, Mail, User } from 'lucide-react'
 import Image from 'next/image'
+import { useState } from 'react'
 
 interface EbookModalProps {
   isOpen: boolean
@@ -58,9 +58,9 @@ export default function EbookModal({ isOpen, onClose }: EbookModalProps) {
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-5xl bg-white rounded-3xl shadow-2xl overflow-hidden border-0 p-0">
+      <DialogContent className="sm:max-w-4xl bg-white rounded-3xl shadow-2xl overflow-hidden border-0 p-0">
         <DialogTitle className="sr-only">Descarcă Ebook Gratuit</DialogTitle>
-        <div className="grid lg:grid-cols-2">
+        <div className="grid lg:grid-cols-2 min-h-[600px]">
               {/* Left side - Form */}
               <div className="p-8 lg:p-12">
                 {isSubmitted ? (
@@ -186,21 +186,20 @@ export default function EbookModal({ isOpen, onClose }: EbookModalProps) {
               </div>
 
               {/* Right side - Ebook preview */}
-              <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-8 lg:p-12 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="relative w-64 h-80 mx-auto mb-6">
-                    <Image
-                      src="https://res.cloudinary.com/dxncqwsnw/image/upload/v1750621132/White-and-Blue-Modern-Business-Book-Cover-1_hcnuye.png"
-                      alt="Ebook Business Guide"
-                      fill
-                      className="object-contain drop-shadow-2xl"
-                    />
-                  </div>
-                  
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">
-                    50+ pagini de strategii
+              <div className="relative h-full">
+                <Image
+                  src="https://res.cloudinary.com/dxncqwsnw/image/upload/v1750621132/White-and-Blue-Modern-Business-Book-Cover-1_hcnuye.png"
+                  alt="Ebook Business Guide"
+                  fill
+                  className="object-cover"
+                />
+                
+                {/* Text overlay at bottom */}
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-8">
+                  <h3 className="text-xl font-bold text-white mb-2">
+                    20+ pagini de strategii
                   </h3>
-                  <p className="text-gray-600 text-sm">
+                  <p className="text-gray-200 text-sm">
                     Ghid complet cu sfaturi practice pentru dezvoltarea afacerii tale
                   </p>
                 </div>

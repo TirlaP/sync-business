@@ -189,7 +189,7 @@ export default function PortfolioGrid({ initialProjectId }: PortfolioGridProps) 
                 key={category.name}
                 initial={{ opacity: 0, y: 20 }}
                 animate={filtersInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                transition={{ duration: 0.4, delay: 0.1 + index * 0.05 }}
+                transition={{ duration: 0.3, delay: 0.05 + index * 0.02 }}
                 onClick={() => setSelectedCategory(category.name)}
                 className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${
                   selectedCategory === category.name
@@ -211,7 +211,7 @@ export default function PortfolioGrid({ initialProjectId }: PortfolioGridProps) 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 0.3 }}
               className="grid grid-cols-1 md:grid-cols-2 gap-8"
             >
               {filteredItems.map((item, index) => (
@@ -220,8 +220,8 @@ export default function PortfolioGrid({ initialProjectId }: PortfolioGridProps) 
                   initial={{ opacity: 0, y: 50 }}
                   animate={gridInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
                   transition={{ 
-                    duration: 0.6, 
-                    delay: index * 0.1,
+                    duration: 0.4, 
+                    delay: index * 0.03,
                     ease: "easeOut"
                   }}
                   className="group relative cursor-pointer"

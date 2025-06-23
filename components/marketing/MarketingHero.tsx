@@ -13,8 +13,10 @@ import {
   Star
 } from 'lucide-react'
 import { motion, useScroll, useTransform } from 'framer-motion'
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import { useScrollAnimation } from '@/hooks/useScrollAnimation'
+import SolicitaOfertaModal from '../layout/SolicitaOfertaModal'
+import Link from 'next/link'
 
 export default function MarketingHero() {
   const { ref, isInView } = useScrollAnimation()
@@ -23,6 +25,7 @@ export default function MarketingHero() {
   const y1 = useTransform(scrollY, [0, 300], [0, 50])
   const y2 = useTransform(scrollY, [0, 300], [0, -50])
   const opacity = useTransform(scrollY, [0, 300], [1, 0.8])
+  const [isOfertaModalOpen, setIsOfertaModalOpen] = useState(false)
 
   return (
     <section ref={containerRef} className="relative min-h-screen bg-gradient-to-br from-purple-900 via-pink-900 to-red-900 flex items-center justify-center overflow-hidden">
@@ -119,6 +122,7 @@ export default function MarketingHero() {
             className="flex flex-col sm:flex-row gap-6 justify-center mb-16"
           >
             <motion.button 
+              onClick={() => setIsOfertaModalOpen(true)}
               className="group relative bg-gradient-to-r from-yellow-400 to-orange-400 text-gray-900 px-10 py-5 rounded-2xl font-bold text-lg overflow-hidden"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
@@ -128,21 +132,23 @@ export default function MarketingHero() {
               />
               <span className="relative flex items-center gap-3">
                 <Zap className="w-6 h-6" />
-                Începe Acum
+                Solicită ofertă
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </span>
             </motion.button>
             
-            <motion.button 
-              className="group bg-white/10 backdrop-blur-sm text-white px-10 py-5 rounded-2xl font-bold text-lg border-2 border-white/20 hover:border-white/40 hover:bg-white/20 transition-all duration-300"
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <span className="flex items-center gap-3">
-                <Play className="w-5 h-5" />
-                Vezi Portofoliu
-              </span>
-            </motion.button>
+            <Link href="/portofoliu">
+              <motion.div 
+                className="group bg-white/10 backdrop-blur-sm text-white px-10 py-5 rounded-2xl font-bold text-lg border-2 border-white/20 hover:border-white/40 hover:bg-white/20 transition-all duration-300 cursor-pointer inline-block"
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <span className="flex items-center gap-3">
+                  <Play className="w-5 h-5" />
+                  Vezi Portofoliu
+                </span>
+              </motion.div>
+            </Link>
           </motion.div>
 
           <motion.div 
@@ -184,6 +190,12 @@ export default function MarketingHero() {
           </motion.div>
         </div>
       </motion.div>
+
+      {/* Modal */}
+      <SolicitaOfertaModal 
+        isOpen={isOfertaModalOpen} 
+        onClose={() => setIsOfertaModalOpen(false)} 
+      />
     </section>
   )
 }
